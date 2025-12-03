@@ -1,0 +1,42 @@
+﻿@model EmployeesLeaveApplication.Models.LeaveApplication
+
+@{
+    ViewData["Title"] = "Apply Leave";
+}
+
+<h2>Apply Leave</h2>
+
+<form asp-action="Create" method="post">
+
+    <div class="form-group">
+        <label>Employee ID</label>
+        <input asp-for="EmployeeId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>From Date</label>
+        <input asp-for="FromDate" class="form-control" type="date" />
+    </div>
+
+    <div class="form-group">
+        <label>To Date</label>
+        <input asp-for="ToDate" class="form-control" type="date" />
+    </div>
+
+    <div class="form-group">
+        <label>Leave Type</label>
+        <select asp-for="LeaveType" class="form-control">
+            <option value="Sick Leave">Sick Leave</option>
+            <option value="Casual Leave">Casual Leave</option>
+            <option value="Paid Leave">Paid Leave</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Reason</label>
+        <textarea asp-for="Reason" class="form-control"></textarea>
+    </div>
+
+    <button class="btn btn-primary mt-3">Apply</button>
+</form>
+

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<EmployeesLeaveApplication.Models.LeaveApplication>
+
+@{
+    ViewData["Title"] = "Leave History";
+}
+
+<h2>Your Leave History</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Leave ID</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Leave Type</th>
+            <th>Status</th>
+            <th>Approved By</th>
+            <th>Approved Date</th>
+            <th>Rejection Reason</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+                <tr>
+                    <td>@item.LeaveID</td>
+                    <td>@item.FromDate.ToShortDateString()</td>
+                    <td>@item.ToDate.ToShortDateString()</td>
+                    <td>@item.LeaveType</td>
+                    <td>@item.Status</td>
+                    <td>@item.ApprovedBy</td>
+                    <td>@item.ApprovedDate?.ToShortDateString()</td>
+                    <td>@item.RejectionReason</td>
+                </tr>
+        }
+    </tbody>
+</table>

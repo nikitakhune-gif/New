@@ -1,0 +1,30 @@
+﻿@model EmployeesLeaveApplication.Models.LeaveApplication
+
+<h2>Reject Leave</h2>
+
+<div class="card p-4 shadow">
+
+    <h4>Are you sure you want to reject this leave?</h4>
+
+    <p><strong>Employee ID:</strong> @Model.EmployeeId</p>
+    <p><strong>Leave Type:</strong> @Model.LeaveType</p>
+    <p><strong>From:</strong> @Model.FromDate.ToShortDateString()</p>
+    <p><strong>To:</strong> @Model.ToDate.ToShortDateString()</p>
+    <p><strong>Reason:</strong> @Model.Reason</p>
+@* 
+    <form method="post" asp-action="Reject" asp-route-id="@Model.LeaveID">
+
+        <label>Reject Reason</label>
+        <textarea class="form-control" name="reason" required></textarea>
+        <br/>
+
+        <button type="submit" class="btn btn-danger">Reject</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form> *@
+
+    <form asp-action="Reject" asp-controller="Leave" method="post">
+        <input type="hidden" name="id" value="@Model.LeaveID" />
+        <button type="submit" class="btn btn-danger">Reject</button>
+    </form>
+
+</div>
